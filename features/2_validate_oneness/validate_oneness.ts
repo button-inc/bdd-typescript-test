@@ -1,5 +1,4 @@
 import { Given, Then, When } from "@cucumber/cucumber";
-import { equal } from "assert";
 import { MockFunc } from "./mockfunc";
 
 const allocation = new MockFunc();

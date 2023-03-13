@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "rimraf dist && tsc -p tsconfig.json",
-    "test": "cucumber-js --publish-quiet features/**/*.feature --require dist/"
+    "test": "cucumber-js --publish-quiet features/**/*.feature --require dist/1_validate_fields/"
   },
   "repository": {
     "type": "git",

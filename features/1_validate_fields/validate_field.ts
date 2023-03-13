@@ -2,23 +2,7 @@ import { Given, Then, When } from "@cucumber/cucumber";
 import { equal } from "assert";
 import { MockFunc } from "./mockfunc";
 
-function required_fieldd(field: string, value: string) {
-  if (value == "") {
-    return `Fail: ${field} is required`;
-  } else {
-    return "Allocation saved with success";
-  }
-}
-
 const field = new MockFunc();
-
-function validateValue(value: string) {
-  if (value !== "") {
-    return "Fail:  User is required ";
-  } else {
-    return "Allocation saved with success";
-  }
-}
 
 Given(
   'a new Allocation with {string} = "{string}"',
@@ -28,7 +12,7 @@ Given(
   },
 );
 
-When("I try to save the Allocation", function () {
+When("I try to save the Allocation required_field", function () {
   const data = field.required_field(this.field, this.value);
   this.currentField = data;
 });

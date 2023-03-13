@@ -4,7 +4,7 @@ Register worked hours
 
 Scenario Outline: Validate required fields
   Given a new Allocation with "<required_field>" = "<value>"
-  When I try to save the Allocation
+  When I try to save the Allocation required_field
   Then "<result>"
   
 Examples:
@@ -17,6 +17,7 @@ Examples:
    |  WorkDate       | "2023-01-04" | Allocation saved with success   |
    |  Hours          | ""           | Fail: Hours is required         |
    |  Hours          | "4"          | Allocation saved with success   |
+
 
 Scenario Outline: Validate Oneness of the Allocation
   Given the existing Allocation 
