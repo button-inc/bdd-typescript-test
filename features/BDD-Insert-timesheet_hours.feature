@@ -6,9 +6,9 @@ Scenario Outline: Validate required fields
   Given a new Allocation with "<required_field>" = "<value>"
   When I try to save the Allocation required_field
   Then "<result>"
-  
+
 Examples:
-   | required_field  | value        |    result                       | 
+   | required_field  | value        |    result                       |
    |  User           | ""           | Fail: User is required          |
    |  User           | "Eduardo"    | Allocation saved with success   |
    |  Activity       | ""           | Fail: Activity is required      |
@@ -18,23 +18,21 @@ Examples:
    |  Hours          | ""           | Fail: Hours is required         |
    |  Hours          | "4"          | Allocation saved with success   |
 
-
 Scenario Outline: Validate Oneness of the Allocation
-  Given the existing Allocation 
+  Given the existing Allocation
    | User       | Activity  | WorkDate     | Hours   |
    | "Eduardo"  | "CCBC"    | "2023-01-04" | "8"     |
-  And new Allocation with User = "<user>"
-  When I try to save the Allocation
+   | "Gabriel"  | "CCBC"    | "2023-01-04" | "8"     |
+  And new Allocation with user "<user>" "<activity>" "<workdate>" "<result>"
+  When I try to save the Allocation Oneness
   Then "<result>"
-  
-Examples:
-   | user      | activity      | workdate     | result                        |
-   |-----------|---------------|--------------|-------------------------------|
-   | "Eduardo" | "CCBC"        | "2023-01-04" | Fail: Information duplicated  |
-   | "Gabriel" | "CCBC"        | "2023-01-04" | Allocation saved with success |
-   | "Eduardo" | "ClimateTrax" | "2023-01-04" | Allocation saved with success |
-   | "Eduardo" | "CCBC"        | "2023-01-05" | Allocation saved with success |
 
+Examples:
+   | user       | activity      | workdate     | result                           |
+   | "Eduardo0" | "CCBC"        | "2023-01-04" | "Fail: Information duplicated"   |
+   | "Gabriel"  | "CCBC"        | "2023-01-04" | "Allocation saved with success"  |
+   | "Eduardo0" | "ClimateTrax" | "2023-01-04" | "Allocation saved with success"  |
+   | "Eduardo0" | "CCBC"        | "2023-01-05" | "Allocation saved with success"  |
 
 # 	
 # Scenario Outline: Validate if "WorkedDate" is a valid date

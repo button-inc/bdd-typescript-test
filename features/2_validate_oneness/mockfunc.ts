@@ -1,23 +1,28 @@
 class MockFunc {
   constructor() {}
 
-  public required_field(field: string, value: string): String {
-    if (value == "") {
-      return `Fail: ${field} is required`;
-    } else {
-      return "Allocation saved with success";
-    }
+  public required_field(
+    user: string,
+    activity: string,
+    workday: string,
+    result: string,
+  ): object {
+    const data = [{
+      user,
+      activity,
+      workday,
+      result,
+    }];
+    return data;
   }
 
-  public oneness_allocation(user: string): String {
-    if (user == "") {
+  public oneness_allocation(user: any, newuser: object): String {
+    if (user == newuser) {
       return `Fail: ${user} is required`;
     } else {
-      return "Allocation saved with success";
+      return user.result;
     }
   }
-
-
 }
 
 export { MockFunc };
