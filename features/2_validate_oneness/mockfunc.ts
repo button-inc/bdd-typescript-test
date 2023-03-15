@@ -21,7 +21,11 @@ class MockFunc {
       u[0].user == user.User && u[0].activity == user.Activity &&
       u[0].workday == user.WorkDate
     ).map((r) => r[0].result);
-    return result[0];
+
+    if (result[0]) {
+      return "Fail: Information duplicated";
+    }
+    return "Allocation saved with success";
   }
 }
 
