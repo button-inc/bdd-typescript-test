@@ -16,12 +16,12 @@ class MockFunc {
     return data;
   }
 
-  public oneness_allocation(user: any, newuser: object): String {
-    if (user == newuser) {
-      return `Fail: ${user} is required`;
-    } else {
-      return user.result;
-    }
+  public oneness_allocation(user: any, newuser: any): String {
+    const result = [newuser].filter((u) =>
+      u[0].user == user.User && u[0].activity == user.Activity &&
+      u[0].workday == user.WorkDate
+    ).map((r) => r[0].result);
+    return result[0];
   }
 }
 

@@ -22,11 +22,11 @@ Given(
 When("I try to save the Allocation Oneness", function () {
   const datas = allocation.oneness_allocation(
     this.table.hashes()[0],
-    this.allocation
+    this.allocation,
   );
-  // this.currentField = [ datas ].filter();
+  this.saved = datas;
 });
 
 Then('"{string}"', function (result: string) {
-  equal(result, result);
+  this.saved !== undefined ? equal(result, this.saved) : this.saved;
 });

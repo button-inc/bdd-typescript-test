@@ -20,16 +20,16 @@ Examples:
 
 Scenario Outline: Validate Oneness of the Allocation
   Given the existing Allocation
-   | User       | Activity  | WorkDate     | Hours   |
-   | "Eduardo"  | "CCBC"    | "2023-01-04" | "8"     |
-   | "Gabriel"  | "CCBC"    | "2023-01-04" | "8"     |
+   | User       | Activity  | WorkDate     | Hours    |
+   | Eduardo    | CCBC      | 2023-01-04   | 8        |
+   | Gabriel    | CCBC      | 2023-01-04   | 8        |
   And new Allocation with user "<user>" "<activity>" "<workdate>" "<result>"
   When I try to save the Allocation Oneness
   Then "<result>"
 
 Examples:
    | user       | activity      | workdate     | result                           |
-   | "Eduardo0" | "CCBC"        | "2023-01-04" | "Fail: Information duplicated"   |
+   | "Eduardo"  | "CCBC"        | "2023-01-04" | "Fail: Information duplicated"   |
    | "Gabriel"  | "CCBC"        | "2023-01-04" | "Allocation saved with success"  |
    | "Eduardo0" | "ClimateTrax" | "2023-01-04" | "Allocation saved with success"  |
    | "Eduardo0" | "CCBC"        | "2023-01-05" | "Allocation saved with success"  |
