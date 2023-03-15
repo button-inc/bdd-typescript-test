@@ -45,18 +45,19 @@ Examples:
    | "2023-02-30a"  | "Fail: WorkDate must be a valid date"   |
    | "2023-02-28"   | "Allocation saved with success"         |
 
-# Scenario Outline: Validate if hours fits in a day "(0 >= h <= 24)"
-#   Given a new Allocation with "Hours" = <value>
-#   When I try to save the Allocation
-#   Then <result>
-#   
-# Examples:
-#    | value  |    result                                         | 
-#    | "-1"   | Fail:  Hours must a number be between 0 and 24    |
-#    | "0"    | Allocation saved with success                     |
-#    | "24"   | Allocation saved with success                     |
-#    | "25"   | Fail:  Hours must a number be between 0 and 24    |
-#
+
+Scenario Outline: Validate if hours fits in a day "(0 >= h <= 24)"
+  Given a new Allocation with Hours "<value>"
+  When I try to save the Allocation Hours
+  Then Hours <result>
+
+Examples:
+   | value  | result                                              |
+   | "-1"   | "Fail: Hours must a number be between 0 and 24"     |
+   | "0"    | "Allocation saved with success"                     |
+   | "24"   | "Allocation saved with success"                     |
+   | "25"   | "Fail: Hours must a number be between 0 and 24"     |
+
 # Scenario: (Action) Delete existent values
 #   Given a valid new Allocation 
 #   When I save the Allocation
