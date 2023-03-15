@@ -34,17 +34,17 @@ Examples:
    | "Eduardo0" | "ClimateTrax" | "2023-01-04" | "Allocation saved with success"  |
    | "Eduardo0" | "CCBC"        | "2023-01-05" | "Allocation saved with success"  |
 
-# 	
-# Scenario Outline: Validate if "WorkedDate" is a valid date
-#   Given a new Allocation with "WorkDate" = <value>
-#   When I try to save the Allocation
-#   Then <result>
-#   
-# Examples:
-#    | value        |    result                               | 
-#    | "2023-02-30" | Fail:  WorkDate must be a valid date    |
-#    | "2023-02-28" | Allocation saved with success           |
-#
+
+Scenario Outline: Validate if "WorkedDate" is a valid date
+  Given a new Allocation with WorkDate "<value>" "<result>"
+  When I try to save the Allocation workdate
+  Then WorkDate <result>
+
+Examples:
+   | value          | result                                  |
+   | "2023-02-30a"  | "Fail: WorkDate must be a valid date"   |
+   | "2023-02-28"   | "Allocation saved with success"         |
+
 # Scenario Outline: Validate if hours fits in a day "(0 >= h <= 24)"
 #   Given a new Allocation with "Hours" = <value>
 #   When I try to save the Allocation
