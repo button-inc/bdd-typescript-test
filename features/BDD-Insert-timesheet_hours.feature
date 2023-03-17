@@ -58,14 +58,32 @@ Examples:
    | "24"   | "Allocation saved with success"                     |
    | "25"   | "Fail: Hours must a number be between 0 and 24"     |
 
-# Scenario: (Action) Delete existent values
-#   Given a valid new Allocation 
-#   When I save the Allocation
-#   Then the existent values store are deleted
-#   
+
+Scenario Outline: (Action) Delete existent values
+  Given the existing Allocations
+    | User      | Activity  | WorkDate      |
+    | Eduardo   | CCBC      | 2023-01-04    |
+    | Gabriel   | CCBC      | 2023-01-01    |
+    | Gabriel   | CCBC      | 2023-01-02    |
+    | Gabriel   | CCBC      | 2023-01-03    |
+    | Gabriel   | CCBC      | 2023-01-04    |
+  And the validated new Allocation
+    |  User      |  Activity |  WorkDate    | 
+    | Gabriel    | CCBC      | 2023-01-03   | 
+  When I delete the Allocation
+  Then the existent values store is deleted <result>
+
+Examples:
+  |  User      |  Activity |  WorkDate    | 
+  | Eduardo    | CCBC      | 2023-01-04   | 
+  | Gabriel    | CCBC      | 2023-01-01   | 
+  | Gabriel    | CCBC      | 2023-01-02   | 
+  | Gabriel    | CCBC      | 2023-01-04   |
+
+
 # Scenario: (Action) Save values 
 #   Given a valid new Allocation 
 #   When I save the Allocation
 #   Then the information is stored 
-#   And it shows the success message "Information saved"
-#
+  # And it shows the success message "Information saved"
+
