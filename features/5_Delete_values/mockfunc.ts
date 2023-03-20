@@ -3,18 +3,18 @@ class MockFunc {
     user: string,
     activity: string,
     workday: string,
-    result: string,
   ): object {
     const data = [{
       user,
       activity,
       workday,
-      result,
     }];
     return data;
   }
 
-  public oneness_allocation(user: any, newuser: any): void {}
+  public delete_value(user: string, activity: string, workday: string): void {
+
+  }
 }
 
 export { MockFunc };

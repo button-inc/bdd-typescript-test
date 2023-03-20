@@ -68,17 +68,18 @@ Scenario Outline: (Action) Delete existent values
     | Gabriel   | CCBC      | 2023-01-03    |
     | Gabriel   | CCBC      | 2023-01-04    |
   And the validated new Allocation
-    |  User      |  Activity |  WorkDate    | 
-    | Gabriel    | CCBC      | 2023-01-03   | 
+    | User      | Activity  | WorkDate    | 
+    | Gabriel   | CCBC      | 2023-01-03  | 
+    | blalbal   | CCBC      | 2023-01-03  | 
   When I delete the Allocation
-  Then the existent values store is deleted <result>
+  Then the existent values store is deleted <user>
 
 Examples:
-  |  User      |  Activity |  WorkDate    | 
-  | Eduardo    | CCBC      | 2023-01-04   | 
-  | Gabriel    | CCBC      | 2023-01-01   | 
-  | Gabriel    | CCBC      | 2023-01-02   | 
-  | Gabriel    | CCBC      | 2023-01-04   |
+  |  user       |  activity   |  workedDate     | 
+  | "Eduardo"   | "CCBC"      | "2023-01-04"    | 
+  | "Gabriel"   | "CCBC"      | "2023-01-01"    | 
+  | "Gabriel"   | "CCBC"      | "2023-01-02"    | 
+  | "Gabriel"   | "CCBC"      | "2023-01-04"    |
 
 
 # Scenario: (Action) Save values 
