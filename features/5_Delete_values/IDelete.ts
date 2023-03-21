@@ -1,7 +1,7 @@
 interface Delete {
-  User: string;
-  Activity: string;
-  Workday: string;
+  user: string;
+  activity: string;
+  workdate: string;
 }
 
 export { Delete };
