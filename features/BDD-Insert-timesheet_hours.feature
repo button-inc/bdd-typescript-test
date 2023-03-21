@@ -60,26 +60,25 @@ Examples:
 
 
 Scenario Outline: (Action) Delete existent values
-  Given the existing Allocations
-    | User      | Activity  | WorkDate      |
+  Given the delete existing Allocations
+    | user      | activity  | workDate      |
     | Eduardo   | CCBC      | 2023-01-04    |
     | Gabriel   | CCBC      | 2023-01-01    |
     | Gabriel   | CCBC      | 2023-01-02    |
     | Gabriel   | CCBC      | 2023-01-03    |
     | Gabriel   | CCBC      | 2023-01-04    |
-  And the validated new Allocation
-    | User      | Activity  | WorkDate    | 
-    | Gabriel   | CCBC      | 2023-01-03  | 
-    | blalbal   | CCBC      | 2023-01-03  | 
+  And the delete validated new Allocation
+    | Field     | Input         |
+    | user      | Gabriel       |
+    | activity  | CCBC          |
+    | workdate  | 2023-01-03    |
   When I delete the Allocation
-  Then the existent values store is deleted <user>
-
-Examples:
-  |  user       |  activity   |  workedDate     | 
-  | "Eduardo"   | "CCBC"      | "2023-01-04"    | 
-  | "Gabriel"   | "CCBC"      | "2023-01-01"    | 
-  | "Gabriel"   | "CCBC"      | "2023-01-02"    | 
-  | "Gabriel"   | "CCBC"      | "2023-01-04"    |
+  Then the existent values store is deleted
+    | user      | activity  | workDate      | 
+    | Eduardo   | CCBC      | 2023-01-04    | 
+    | Gabriel   | CCBC      | 2023-01-01    | 
+    | Gabriel   | CCBC      | 2023-01-02    | 
+    | Gabriel   | CCBC      | 2023-01-04    |
 
 
 # Scenario: (Action) Save values 
