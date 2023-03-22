@@ -58,14 +58,48 @@ Examples:
    | "24"   | "Allocation saved with success"                     |
    | "25"   | "Fail: Hours must a number be between 0 and 24"     |
 
-# Scenario: (Action) Delete existent values
-#   Given a valid new Allocation 
-#   When I save the Allocation
-#   Then the existent values store are deleted
-#   
+
+Scenario Outline: (Action) Delete existent values
+  Given the delete existing Allocations
+    | user      | activity  | workDate      |
+    | Eduardo   | CCBC      | 2023-01-04    |
+    | Gabriel   | CCBC      | 2023-01-01    |
+    | Gabriel   | CCBC      | 2023-01-02    |
+    | Gabriel   | CCBC      | 2023-01-03    |
+    | Gabriel   | CCBC      | 2023-01-04    |
+<<<<<<< HEAD
+  And the delete validated new Allocation
+    | Field     | Input         |
+    | user      | Gabriel       |
+    | activity  | CCBC          |
+    | workdate  | 2023-01-03    |
+  When I delete the Allocation
+  Then the existent values store is deleted
+    | user      | activity  | workDate      | 
+    | Eduardo   | CCBC      | 2023-01-04    | 
+    | Gabriel   | CCBC      | 2023-01-01    | 
+    | Gabriel   | CCBC      | 2023-01-02    | 
+    | Gabriel   | CCBC      | 2023-01-04    |
+=======
+  And the validated new Allocation
+    | User      | Activity  | WorkDate    | 
+    | Gabriel   | CCBC      | 2023-01-03  | 
+    | blalbal   | CCBC      | 2023-01-03  | 
+  When I delete the Allocation
+  Then the existent values store is deleted <user>
+
+Examples:
+  |  user       |  activity   |  workedDate     | 
+  | "Eduardo"   | "CCBC"      | "2023-01-04"    | 
+  | "Gabriel"   | "CCBC"      | "2023-01-01"    | 
+  | "Gabriel"   | "CCBC"      | "2023-01-02"    | 
+  | "Gabriel"   | "CCBC"      | "2023-01-04"    |
+
+>>>>>>> 6b770a3... Added table handler.
+
 # Scenario: (Action) Save values 
 #   Given a valid new Allocation 
 #   When I save the Allocation
 #   Then the information is stored 
-#   And it shows the success message "Information saved"
-#
+  # And it shows the success message "Information saved"
+
