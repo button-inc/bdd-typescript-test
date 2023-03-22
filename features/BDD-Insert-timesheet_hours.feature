@@ -31,8 +31,8 @@ Examples:
    | user       | activity      | workdate     | result                           |
    | "Eduardo"  | "CCBC"        | "2023-01-04" | "Fail: Information duplicated"   |
    | "Gabriel"  | "CCBC"        | "2023-01-04" | "Allocation saved with success"  |
-   | "Eduardo0" | "ClimateTrax" | "2023-01-04" | "Allocation saved with success"  |
-   | "Eduardo0" | "CCBC"        | "2023-01-05" | "Allocation saved with success"  |
+   | "Eduardo"  | "ClimateTrax" | "2023-01-04" | "Allocation saved with success"  |
+   | "Eduardo"  | "CCBC"        | "2023-01-05" | "Allocation saved with success"  |
 
 
 Scenario Outline: Validate if "WorkedDate" is a valid date
@@ -81,9 +81,20 @@ Scenario Outline: (Action) Delete existent values
     | Gabriel   | CCBC      | 2023-01-04    |
 
 
-# Scenario: (Action) Save values 
-#   Given a valid new Allocation 
-#   When I save the Allocation
-#   Then the information is stored 
-  # And it shows the success message "Information saved"
+Scenario: (Action) Save values 
+  Given a valid save new Allocation 
+    | user      | activity  | workDate      |
+    | Eduardo   | CCBC      | 2023-01-04    |
+    | Gabriel   | CCBC      | 2023-01-01    |
+  And input save new Allocation
+    | Field     | Input         |
+    | user      | Gabriel       |
+    | activity  | CCBC          |
+    | workdate  | 2023-01-03    |
+  When I save the Allocation
+  Then the information is stored 
+  And it shows the success message Information saved
+  """
+  Information saved
+  """
 
