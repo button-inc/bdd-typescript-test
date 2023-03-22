@@ -80,7 +80,6 @@ Scenario Outline: (Action) Delete existent values
     | Gabriel   | CCBC      | 2023-01-02    | 
     | Gabriel   | CCBC      | 2023-01-04    |
 
-
 # Scenario: (Action) Save values 
 #   Given a valid new Allocation 
 #   When I save the Allocation
