@@ -43,11 +43,11 @@ In this scenario below, the aim is to validate the "oneness" of the allocation, 
 
 2. Given the existing allocation: This step initializes the test by providing the pre-existing allocation data for the specified users, activities, work dates, and hours.
 
-3. And new allocation with user "<user>" "<activity>" "<workdate>" "<result>": This step creates a new allocation with the specified user, activity, work date, and expected result.
+3. And new allocation with user ```"<user>" "<activity>" "<workdate>" "<result>"```: This step creates a new allocation with the specified user, activity, work date, and expected result.
 
 4. When I try to save the Allocation Oneness: This step invokes the application's functionality to validate the oneness of the allocation.
 
-5. Then "<result>": This step asserts that the actual result of the oneness validation matches the expected result specified in the previous step.
+5. Then ```"<result>"```: This step asserts that the actual result of the oneness validation matches the expected result specified in the previous step.
 
 ## Disclaimer
 I haven't conducted any tests on the database design and frontend to determine if BDD could be utilized on those projects.
