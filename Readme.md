@@ -11,13 +11,13 @@ Once `npm run build` was run then run `npm run test`
 
 ## Some insights about BDD to the development process.
 
-# Pros:
+### Pros:
 > - Ensures the software meets user needs by focusing on its behavior.
 > - Improves communication and reduces misunderstandings through collaboration between stakeholders.
 > - Catches issues early in the development process by emphasizing early and frequent testing.
 > - Identifies gaps in requirements and areas where more information is needed.
 
-# Cons:
+### Cons:
 > - Time-consuming in the early stages of defining requirements.
 > - Requires significant collaboration and communication, which can be challenging in large or distributed teams.
 > - Difficult to implement in legacy systems or projects with unclear or changing requirements.
