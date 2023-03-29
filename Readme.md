@@ -24,7 +24,7 @@ Once `npm run build` was run then run `npm run test`
 > - Can be intimidating for some developers as it adds an extra layer of complexity to the development process.
 
 ## How this project is organized.
-![Bdd draft schema!](./assets/bdd-typejs.svg "BDD draft schema")
+![Bdd draft schema!](./assets/bdd-typejs.png "BDD draft schema")
 
 
 ## Explore Further
