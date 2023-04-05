@@ -1,6 +1,6 @@
 ## Introduction
 
-Behavior driven design allows for the use of established standards and
+Behavior driven development allows for the use of established standards and
 specifications to design, create, test, and document software. It also
 emphasizes the ability to reuse and modify existing code and accurately estimate
 the effort and risk of making changes.
@@ -50,4 +50,4 @@ In this scenario below, the aim is to validate the "oneness" of the allocation, 
 5. Then ```"<result>"```: This step asserts that the actual result of the oneness validation matches the expected result specified in the previous step.
 
 ## Disclaimer
-I haven't conducted any tests on the database design and frontend to determine if BDD could be utilized on those projects.
+We haven't conducted any tests on the database design and frontend to determine if BDD could be utilized on those projects.
